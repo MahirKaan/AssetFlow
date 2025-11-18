@@ -8,7 +8,6 @@ export const LoginScreen = () => {
   const login = useAuthStore(state => state.login);
 
   const handleLogin = () => {
-    // GEÇİCİ MOCK LOGIN (Burayı sonra API'ye bağlayacağız)
     if (email === 'demo' && password === '123') {
       login('fake-jwt-token', {
         id: '1',
@@ -27,17 +26,20 @@ export const LoginScreen = () => {
         <Text style={styles.title}>AssetFlow</Text>
         <Text style={styles.subtitle}>Kurumsal Giriş</Text>
 
+        {/* Sadeleştirilmiş Input 1 */}
         <TextInput
           style={styles.input}
           placeholder="E-posta / Sicil No"
-          autoCapitalize="none"
+          // autoCapitalize="none" <-- Şimdilik kapattık
           value={email}
           onChangeText={setEmail}
         />
+
+        {/* Sadeleştirilmiş Input 2 */}
         <TextInput
           style={styles.input}
           placeholder="Şifre"
-          secureTextEntry
+          // secureTextEntry <-- Şimdilik kapattık
           value={password}
           onChangeText={setPassword}
         />
@@ -53,7 +55,7 @@ export const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4f4f5', // Açık gri kurumsal arka plan
+    backgroundColor: '#f4f4f5',
     justifyContent: 'center',
     padding: 20,
   },
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#005eb8', // SOCAR Mavisi (yaklaşık)
+    color: '#005eb8',
     textAlign: 'center',
     marginBottom: 8,
   },
